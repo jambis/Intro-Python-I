@@ -50,6 +50,6 @@ print(waypoints)
 
 # Write a loop that prints out all the field values for all the waypoints
 # YOUR CODE HERE
-for item in waypoints:
-    for value in item.values():
-        print(value)
+for place in waypoints:
+    for key, value in place.items():
+        print("%s: %s" % (key, value))
