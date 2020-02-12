@@ -35,15 +35,16 @@ from datetime import datetime
 def showMonthlyCalendar():
     currentYear = datetime.now().year
     currentMonth = datetime.now().month
-    if len(sys.argv) > 3:
+
+    if len(sys.argv) == 3:
+        print(calendar.month(int(sys.argv[2]), int(sys.argv[1])))
+    elif len(sys.argv) == 2 and int(sys.argv[1]) in range(1, 13):
+        print(calendar.month(currentYear, int(sys.argv[1])))
+    elif len(sys.argv) == 1:
+        print(calendar.month(currentYear, currentMonth))
+    else:
         print(
             "This program can display a particular calendar month. You can specify a month and year by running the file in the form of 14_cal.py [month] [year]")
-    elif len(sys.argv) == 3:
-        print(calendar.month(int(sys.argv[2]), int(sys.argv[1])))
-    elif len(sys.argv) == 2:
-        print(calendar.month(currentYear, int(sys.argv[1])))
-    else:
-        print(calendar.month(currentYear, currentMonth))
 
 
 showMonthlyCalendar()
